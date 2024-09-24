@@ -27,7 +27,16 @@ public class NumberTester
         }
         return true;
     };
-    NumberTest palindromeTester;
+    NumberTest palindromeTester = a -> {
+        String str = Integer.toString(a);
+        int len = str.length();
+        for (int i = 0; i < len / 2; i++) {
+            if (str.charAt(i) != str.charAt(len - i - 1)) {
+                return false;
+            }
+        }
+        return true;
+    };
 
 
 
