@@ -7,10 +7,12 @@ import java.util.Scanner;
 
 public class NumberTester
 {
-    String filepath;
+
+    
+     String  filepath;
 
     NumberTest oddTester = number -> (number % 2) != 0;
-    NumberTest primeTester = n -> {
+      NumberTest primeTester = n -> {
         if (n <= 1) {
             return false;
         }
@@ -30,7 +32,7 @@ public class NumberTester
         }
         return true;
     };
-    NumberTest palindromeTester = a -> {
+     NumberTest palindromeTester = a -> {
         String str = Integer.toString(a);
         int len = str.length();
         for (int i = 0; i < len / 2; i++) {
@@ -43,15 +45,15 @@ public class NumberTester
 
 
 
-    public NumberTester (String fileName)
+    public  NumberTester (String fileName)
     {
         this.filepath = fileName;
     }
-    public void setOddEvenTester (NumberTest oddTest)
+    public  void setOddEvenTester (NumberTest oddTest)
     {
         oddTester = oddTest;
     }
-    public void setPrimeTester (NumberTest primeTester)
+    public  void setPrimeTester (NumberTest primeTester)
     {
         this.primeTester = primeTester;
     }
@@ -59,7 +61,7 @@ public class NumberTester
     {
         this.palindromeTester = palindromeTester;
     }
-    public void testFile()
+    public  void testFile()
     {
         Scanner scanner = new Scanner(filepath);
         int runnings = scanner.nextInt();
@@ -69,16 +71,30 @@ public class NumberTester
             String [] cases = line.split(" ");
             int chose = Integer.parseInt(cases[0]);
             int number = Integer.parseInt(cases[1]);
+            System.out.println(i +  ". Zeile:");
             switch (chose)
             {
                 case 1: if(oddTester.testNumber(number))
                         {
-                            System.out.println(number + " ist gerade");
+                            System.out.println(number + " EVEN");
                         }else {
-                            System.out.println(number + " ist ungerade");
-                        }
-                case 2: oddTester.testNumber(number);
+                            System.out.println(number + " UNEVEN");
+                        }break;
+                case 2: if(primeTester.testNumber(number))
+                        {
+                            System.out.println(number + " PRIME");
+                        }else
+                        {
+                            System.out.println(number + " NO PRIME");
+                        }break;
+                case 3: if (palindromeTester.testNumber(number))
+                        {
+                            System.out.println(number + " PALINDROME");
+                        }else {
+                            System.out.println(number + " NOT PALINDROME");
+                        }break;
             }
+            System.out.println();
 
 
         }
