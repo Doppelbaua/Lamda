@@ -2,13 +2,13 @@ package DoppelbauerJ22084.Beispiel3;
 
 import DoppelbauerJ22084.Beispiel3.NumberTest;
 
-import java.io.BufferedReader;
+import java.io.*;
 import java.util.Scanner;
 
 public class NumberTester
 {
 
-    
+
      String  filepath;
 
     NumberTest oddTester = number -> (number % 2) != 0;
@@ -61,45 +61,48 @@ public class NumberTester
     {
         this.palindromeTester = palindromeTester;
     }
-    public  void testFile()
-    {
+    public  void testFile() {
         Scanner scanner = new Scanner(filepath);
-        int runnings = scanner.nextInt();
-        for (int i = 0; i < runnings; i++)
-        {
-            String line = scanner.nextLine();
-            String [] cases = line.split(" ");
+        int runnings = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < runnings; i++) {
+            String line = String.valueOf(scanner.nextLine());
+            String[] cases = line.split(" ");
             int chose = Integer.parseInt(cases[0]);
             int number = Integer.parseInt(cases[1]);
-            System.out.println(i +  ". Zeile:");
-            switch (chose)
-            {
-                case 1: if(oddTester.testNumber(number))
-                        {
-                            System.out.println(number + " EVEN");
-                        }else {
-                            System.out.println(number + " UNEVEN");
-                        }break;
-                case 2: if(primeTester.testNumber(number))
-                        {
-                            System.out.println(number + " PRIME");
-                        }else
-                        {
-                            System.out.println(number + " NO PRIME");
-                        }break;
-                case 3: if (palindromeTester.testNumber(number))
-                        {
-                            System.out.println(number + " PALINDROME");
-                        }else {
-                            System.out.println(number + " NOT PALINDROME");
-                        }break;
+            System.out.println(i + ". Zeile:");
+            switch (chose) {
+                case 1:
+                    if (oddTester.testNumber(number)) {
+                        System.out.println(number + " EVEN");
+                    } else {
+                        System.out.println(number + " ODD");
+                    }
+                    break;
+                case 2:
+                    if (primeTester.testNumber(number)) {
+                        System.out.println(number + " PRIME");
+                    } else {
+                        System.out.println(number + " NO PRIME");
+                    }
+                    break;
+                case 3:
+                    if (palindromeTester.testNumber(number)) {
+                        System.out.println(number + " PALINDROME");
+                    } else {
+                        System.out.println(number + " NOT PALINDROME");
+                    }
+                    break;
             }
+
             System.out.println();
-
-
         }
-
     }
+    public static void main (String [] args)
+    {
+        NumberTester tester = new NumberTester("werte.csv");
+        tester.testFile();
+    }
+
 
 
 }
