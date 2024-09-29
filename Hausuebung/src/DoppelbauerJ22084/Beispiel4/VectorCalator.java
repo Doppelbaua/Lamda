@@ -3,7 +3,7 @@ package DoppelbauerJ22084.Beispiel4;
 public class VectorCalator extends AbstractCalculator
 {
 
-    public VectorCalator(CalculationOperation add, CalculationOperation subtract, CalculationOperation multiply, CalculationOperation divid) {
+    public VectorCalator() {
         super(
                 (x, y) -> new Number(x.getA() + y.getA(), x.getB() + y.getB()),
                 (x, y) -> new Number(x.getA() - y.getA(), x.getB() - y.getB()),

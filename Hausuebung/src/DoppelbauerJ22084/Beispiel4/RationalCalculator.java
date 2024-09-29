@@ -3,7 +3,7 @@ package DoppelbauerJ22084.Beispiel4;
 public class RationalCalculator extends AbstractCalculator
 {
 
-    public RationalCalculator(CalculationOperation add, CalculationOperation subtract, CalculationOperation multiply, CalculationOperation divid) {
+    public RationalCalculator() {
         super(
                 (x, y) -> new Number(x.getA() + y.getA(), x.getB() + y.getB()),
                 (x, y) -> new Number(x.getA() - y.getA(), x.getB() - y.getB()),
