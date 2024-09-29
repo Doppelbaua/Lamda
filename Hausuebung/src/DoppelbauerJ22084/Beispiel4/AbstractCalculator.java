@@ -8,6 +8,7 @@ public abstract class AbstractCalculator {
 
 
     public AbstractCalculator(CalculationOperation add, CalculationOperation subtract, CalculationOperation multiply, CalculationOperation divid) {
+
         this.add = add;
         this.subtract = subtract;
         this.multiply = multiply;
