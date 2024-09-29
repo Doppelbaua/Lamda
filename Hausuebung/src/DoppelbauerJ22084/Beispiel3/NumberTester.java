@@ -2,6 +2,9 @@ package DoppelbauerJ22084.Beispiel3;
 
 import DoppelbauerJ22084.Beispiel3.NumberTest;
 
+import java.io.BufferedReader;
+import java.util.Scanner;
+
 public class NumberTester
 {
     String filepath;
@@ -58,6 +61,27 @@ public class NumberTester
     }
     public void testFile()
     {
+        Scanner scanner = new Scanner(filepath);
+        int runnings = scanner.nextInt();
+        for (int i = 0; i < runnings; i++)
+        {
+            String line = scanner.nextLine();
+            String [] cases = line.split(" ");
+            int chose = Integer.parseInt(cases[0]);
+            int number = Integer.parseInt(cases[1]);
+            switch (chose)
+            {
+                case 1: if(oddTester.testNumber(number))
+                        {
+                            System.out.println(number + " ist gerade");
+                        }else {
+                            System.out.println(number + " ist ungerade");
+                        }
+                case 2: oddTester.testNumber(number);
+            }
+
+
+        }
 
     }
 
